@@ -7,16 +7,17 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  name: Default   # your self-hosted agent pool
 
 steps:
 - task: Maven@3
+  displayName: 'Build with Maven'
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
+    goals: 'clean package'
+    options: '-Xmx3072m'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    javaHomeOption: 'Path'
+    jdkDirectory: 'C:\jdk-11.0.30'
+    mavenVersionOption: 'Default'
