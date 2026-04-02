@@ -20,3 +20,11 @@ steps:
     javaHomeOption: 'Path'
     jdkDirectory: 'C:\jdk-11.0.30'
     mavenVersionOption: 'Default'
+
+# 👇 Publish the JAR file
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish JAR Artifact'
+  inputs:
+    PathtoPublish: 'server/target'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
