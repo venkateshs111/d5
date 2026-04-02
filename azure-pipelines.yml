@@ -21,10 +21,10 @@ steps:
     jdkDirectory: 'C:\jdk-11.0.30'
     mavenVersionOption: 'Default'
 
-# 👇 Publish the JAR file
+# 🔥 Publish WAR file
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish JAR Artifact'
+  displayName: 'Publish WAR Artifact'
   inputs:
-    PathtoPublish: 'server/target'
-    ArtifactName: 'drop'
+    PathtoPublish: 'webapp/target/webapp.war'
+    ArtifactName: 'webapp-war'
     publishLocation: 'Container'
